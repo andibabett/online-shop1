@@ -25,6 +25,10 @@ public class ProductController {
         this.productService = productService;
     }
 
+
+//    todo: fix lazy loading for all endpoints
+
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody @Valid SaveProductRequest request) {
         Product product = productService.createProduct(request);
