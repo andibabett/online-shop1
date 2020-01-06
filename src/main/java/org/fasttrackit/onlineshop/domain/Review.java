@@ -18,3 +18,4 @@ public class Review {
     @JoinColumn(name = "product  id")
     private Product product;
 }
+
