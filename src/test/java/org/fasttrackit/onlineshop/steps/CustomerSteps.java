@@ -19,8 +19,8 @@ public class CustomerSteps {
 
     public Customer createCustomer() {
         SaveCustomerRequest request = new SaveCustomerRequest();
-        request.setFirstName("Ionel " + System.currentTimeMillis());
-        request.setLastName("Pop " + System.currentTimeMillis());
+        request.setFirstName("Ionel" + System.currentTimeMillis());
+        request.setLastName("Pop" + System.currentTimeMillis());
 
         Customer createdCustomer = customerService.createCustomer(request);
 

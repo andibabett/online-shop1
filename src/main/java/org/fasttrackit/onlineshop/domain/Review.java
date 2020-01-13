@@ -1,5 +1,4 @@
 package org.fasttrackit.onlineshop.domain;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,7 +14,7 @@ public class Review {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product  id")
+    @JoinColumn(name = "product_id")
     private Product product;
-}
 
+}

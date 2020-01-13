@@ -38,16 +38,21 @@ public class CartService {
     public void addProductToCart(AddProductToCartRequest request) {
         LOGGER.info("Adding product to cart: {}", request);
 
-        Cart cart = cartRepository.findById(request.getCustomerId()).orElse(new Cart());
+        Cart cart = cartRepository.findById(request.getCustomerId())
+                .orElse(new Cart());
 
         if (cart.getCustomer() == null) {
-            LOGGER.info("New cart will be created. " + "Retrieving customer {} to map the relationship", request.getCustomerId());
+            LOGGER.info("New cart will be created. " +
+                            "Retrieving customer {} to map the relationship",
+                    request.getCustomerId());
 
-            Customer customer = customerService.getCustomer(request.getCustomerId());
+            Customer customer =
+                    customerService.getCustomer(request.getCustomerId());
 
             cart.setId(customer.getId());
             cart.setCustomer(customer);
         }
+
         Product product = productService.getProduct(request.getProductId());
         cart.addToCart(product);
 
@@ -56,9 +61,11 @@ public class CartService {
 
     @Transactional
     public CartResponse getCart(long id) {
-        LOGGER.info("Retrievering cart {}", id);
+        LOGGER.info("Retrieving cart {}", id);
 
-        Cart cart = cartRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cart " + id + "does not exist"));
+        Cart cart = cartRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Cart " + id + " does not exist."));
 
         CartResponse response = new CartResponse();
         response.setId(cart.getId());
@@ -80,6 +87,5 @@ public class CartService {
 
         response.setProducts(productsInCart);
         return response;
-
     }
 }

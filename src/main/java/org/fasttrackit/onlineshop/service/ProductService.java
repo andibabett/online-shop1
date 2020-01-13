@@ -15,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,7 @@ public class ProductService {
                         "Product " + id + " does not exist."));
     }
 
+    @Transactional
     public Page<ProductResponse> getProducts(GetProductsRequest request, Pageable pageable) {
         LOGGER.info("Retrieving products: {}", request);
 
@@ -98,7 +100,9 @@ public class ProductService {
 
             productResponses.add(productResponse);
         }
-        return new PageImpl<>(productResponses, pageable, products.getTotalElements());
+
+        return new PageImpl<>(
+                productResponses, pageable, products.getTotalElements());
     }
 
     public Product updateProduct(long id, SaveProductRequest request) {

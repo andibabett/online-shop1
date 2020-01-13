@@ -1,7 +1,5 @@
 package org.fasttrackit.onlineshop.transfer;
 
-import javax.validation.constraints.NotNull;
-
 public class ProductResponse {
 
     private Long id;
@@ -10,7 +8,6 @@ public class ProductResponse {
     private Double price;
     private Integer quantity;
     private String imageUrl;
-
 
     public Long getId() {
         return id;

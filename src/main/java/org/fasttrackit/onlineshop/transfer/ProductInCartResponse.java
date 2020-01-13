@@ -1,7 +1,5 @@
 package org.fasttrackit.onlineshop.transfer;
 
-import java.util.Objects;
-
 public class ProductInCartResponse {
 
     private Long id;
@@ -45,12 +43,15 @@ public class ProductInCartResponse {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         ProductInCartResponse that = (ProductInCartResponse) o;
+
         return id.equals(that.id);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id.hashCode();
     }
 }

@@ -1,4 +1,4 @@
-package org.fasttrackit.onlineshop;
+package org.fasttrackit.onlineshop.steps;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -27,6 +27,8 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private Set<Cart> carts = new HashSet<>();
 
+
+
     public Long getId() {
         return id;
     }

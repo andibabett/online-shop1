@@ -15,7 +15,6 @@ import org.springframework.transaction.TransactionSystemException;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -26,7 +25,6 @@ public class ProductServiceIntegrationTests {
 
     @Autowired
     private ProductSteps productSteps;
-
 
     @Test
     public void testCreateProduct_whenValidRequest_thenProductIsSaved() {
@@ -90,6 +88,5 @@ public class ProductServiceIntegrationTests {
 
         productService.getProduct(product.getId());
     }
-
 
 }

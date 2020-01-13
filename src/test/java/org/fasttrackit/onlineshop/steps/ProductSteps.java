@@ -36,5 +36,4 @@ public class ProductSteps {
 
         return createdProduct;
     }
-
 }
